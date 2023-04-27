@@ -1,5 +1,5 @@
 import Image from "next/image"
-import type { MainHeader } from "~/interfaces/headers";
+import type { MainHeader } from "~/interfaces/Headers";
 
 
 const Header: React.FC<MainHeader> = ({ title, image, cover }) => {
