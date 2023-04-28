@@ -1,12 +1,17 @@
-import { type NextPage } from "next";
+import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import CategoriesDecorator from "~/components/CategoriesDecorator";
 import Header from "~/components/Header";
 import TextDecorator from "~/components/TextDecorator";
+import type{ IndexPage } from "~/interfaces/Pages";
+import { api } from "~/utils/api";
 
-const Home: NextPage = () => {
+const Home: NextPage<IndexPage> = ({ posts }) => {
+
+  console.log(posts);
+  
 
   return (
     <>
@@ -55,11 +60,11 @@ const Home: NextPage = () => {
         <section className="container mt-12">
           <div className="w-full bg-slate-100 inline-flex px-6 py-6 gap-2 items-center border">
             <span className="text-xl">💡</span>
-            <div>Este sitio es de <Link href="https://github.com/jvngarcia/portfolio" target="_blank" className="hover:text-slate-400 transition-all">código abierto y fácil de usar</Link>.</div>
+            <div>Este sitio es de <Link href="https://github.com/jvngarcia/portfolio" target="_blank" className="hover:border-red-300 transition-all border-b">código abierto y fácil de usar</Link>.</div>
           </div>
         </section>
 
-        <section className="container mt-8">
+        {/* <section className="container mt-8">
           <div className="grid md:grid-cols-3 grid-cols-2 justify-center m-auto">
             <Link href="/" className="inline-flex items-center hover:bg-slate-100 transition-all text-center justify-center py-4">
               <span className="text-xl mr-2">👋</span>
@@ -76,7 +81,7 @@ const Home: NextPage = () => {
               <span className="border-b font-semibold">Contacto</span>
             </Link>
           </div>
-        </section>
+        </section> */}
 
         <footer className="container my-8 py-6 text-center">
             <p>Desarrollado con <span className="text-red-500">❤️</span> por JVN García</p>
@@ -87,3 +92,15 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+
+
+export const getServerSideProps = () => {
+
+  const { data: allPosts } = api.post.getAllPublished.useQuery();
+
+  return {
+    props: {
+      posts: allPosts,
+    },
+  };
+}
