@@ -64,6 +64,9 @@ model Post {
     id        String   @id @default(cuid())
     title     String
     content   String?
+    extract   String?
+    slug      String   @unique
+    image     String
     published Boolean  @default(false)
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
