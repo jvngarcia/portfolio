@@ -1,5 +1,4 @@
 import type { GetServerSideProps, NextPage } from "next";
-import { MDXRemote } from "next-mdx-remote";
 import Head from "next/head";
 import Link from "next/link";
 import Header from "~/components/Header";
@@ -26,7 +25,6 @@ const Blog: NextPage<ShowPostPage> = ({ post }) => {
                 <section className="container mt-12">
                 <article className="prose">
                                 <h1>{ post.title }</h1>
-                                <MDXRemote compiledSource={post.content ?? ''} />
                             </article>
                 </section>
 
