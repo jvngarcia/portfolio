@@ -1,8 +1,12 @@
-import type { Post } from "./Post";
+import type { Post, PostArticle } from "./Post";
 
 
 
 export type IndexPage = {
-    posts: Post[],
+    posts: PostArticle[],
 }
 
+
+export type ShowPostPage = {
+    post: Post,
+}
