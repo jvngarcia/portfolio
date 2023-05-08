@@ -9,4 +9,5 @@ export type IndexPage = {
 
 export type ShowPostPage = {
     post: Post,
+    content: string
 }
