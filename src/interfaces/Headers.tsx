@@ -3,6 +3,6 @@
 
 export type MainHeader = {
     image: string;
-    cover: string;
+    cover: string | undefined;
     title: string;
 }
