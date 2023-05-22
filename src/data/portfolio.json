@@ -1,0 +1,31 @@
+[
+    {
+        "title": "Portal de Pagos",
+        "extract": "Sistema de pagos en linea para la empresa Bancamiga Banco Universal C.A.",
+        "image": "/images/portfolio/portal-pagos.jpeg",
+        "languages": [
+            "React",
+            "TailwindCSS",
+            "Javascript"
+        ]
+    },
+    {
+        "title": "Sistema de Registro de Formación",
+        "extract": "Sistema de registro de toda formación recibida por los empleados de la empresa Bancamiga Banco Universal C.A.",
+        "image": "/images/portfolio/portal-pagos.jpeg",
+        "languages": [
+            "Laravel",
+            "PHP",
+            "Javascript"
+        ]
+    },
+    {
+        "title": "Verdad O Reto",
+        "extract": "Juego de Verdad o Reto con más de 10k descargas en la playstore.",
+        "image": "/images/portfolio/trueordare.png",
+        "languages": [
+            "Flutter",
+            "Dart"
+        ]
+    }
+]

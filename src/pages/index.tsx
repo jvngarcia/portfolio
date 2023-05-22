@@ -6,7 +6,7 @@ import Header from "~/components/Header";
 import TextDecorator from "~/components/TextDecorator";
 import type { IndexPage } from "~/interfaces/Pages";
 import type { PostArticle } from "~/interfaces/Post";
-import { prisma } from "~/server/db";
+import data from "~/data/portfolio.json";
 // import { api } from "~/utils/api";
 
 const Home: NextPage<IndexPage> = ({ posts }) => {
@@ -36,12 +36,12 @@ const Home: NextPage<IndexPage> = ({ posts }) => {
         </section>
 
         <section className="container mt-12">
-          <h2 className="text-2xl font-semibold mb-4">Blog</h2>
+          <h2 className="text-2xl font-semibold mb-4">Portafolio</h2>
           <hr />
           <div className="mt-4 grid md:grid-cols-2 grid-cols-1 gap-10">
             {
               posts.map((post, index) => (
-                <Article key={index} title={post.title} extract={post.extract} slug={`/blog/${post.slug}`} image="/images/cover.jpg" />
+                <Article key={index} title={post.title} languages={post.languages} extract={post.extract} image={ post.image } />
               ))
             }
 
@@ -105,22 +105,14 @@ const Home: NextPage<IndexPage> = ({ posts }) => {
 export default Home;
 
 
-export const getServerSideProps = async () => {
+export const getServerSideProps = () => {
 
-  const allPosts: PostArticle[] = await prisma.post.findMany({
-    where: {
-      published: true,
-    },
-    orderBy: {
-      createdAt: 'desc',
-    },
-    select: {
-      title: true,
-      extract: true,
-      slug: true,
-      image: true,
-    }
-  });
+  const allPosts: PostArticle[] = data.map((post) => ({
+    title: post.title,
+    extract: post.extract,
+    image: post.image,
+    languages: post.languages,
+  }));
 
   return {
     props: {
