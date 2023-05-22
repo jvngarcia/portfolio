@@ -11,5 +11,4 @@ export type CategoriesType = {
     from: string,
     to: string,
     children: ReactNode,
-    slug: string
 }

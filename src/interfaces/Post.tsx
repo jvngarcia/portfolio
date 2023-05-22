@@ -9,6 +9,6 @@ export type Post = {
 export type PostArticle = {
     title: string,
     extract: string | null,
-    slug: string,
     image: string,
+    languages: string[],
 }

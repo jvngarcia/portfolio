@@ -1,12 +1,11 @@
-import Link from "next/link";
 import type { CategoriesType } from "~/interfaces/Decorators";
 
 
-const CategoriesDecorator: React.FC<CategoriesType> = ({ from, to, children, slug }) => {
+const CategoriesDecorator: React.FC<CategoriesType> = ({ from, to, children }) => {
     return(
-        <Link href={slug} className={ `bg-gradient-to-r ${ from } ${ to } rounded-lg px-3 text-sm` }>
+        <div className={ `bg-gradient-to-r ${ from } ${ to } rounded-lg px-3 text-sm` }>
             { children }
-        </Link>
+        </div>
     )
 }
 

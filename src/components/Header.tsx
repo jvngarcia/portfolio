@@ -5,7 +5,7 @@ import type { MainHeader } from "~/interfaces/Headers";
 const Header: React.FC<MainHeader> = ({ title, image, cover }) => {
     return (
         <header className="mt-6">
-            <Image src={ cover } width={1200} height={264} alt="cover JVN García" className="rounded-xl shadow-xl" priority/>
+            <Image src={ cover ?? '/images/cover.jpg' } width={1200} height={264} alt="cover JVN García" className="rounded-xl shadow-xl" priority/>
             <div className="-mt-12 flex justify-center">
                 <Image src={ image } width={124} height={124} alt="cover JVN García" className="rounded-full shadow-xl" priority />
             </div>
