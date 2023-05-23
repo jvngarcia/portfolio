@@ -11,9 +11,6 @@ import data from "~/data/portfolio.json";
 
 const Home: NextPage<IndexPage> = ({ posts }) => {
 
-  console.log(posts);
-
-
   return (
     <>
       <Head>
@@ -30,8 +27,11 @@ const Home: NextPage<IndexPage> = ({ posts }) => {
           <p className="text-lg mb-3">
             Soy <TextDecorator from="from-amber-200" to="to-amber-300">Ángel García</TextDecorator>, un desarrollador de software que ama el código abierto y la IA.
           </p>
-          <p className="text-lg">
+          <p className="text-lg mb-3">
             Puedes encontrarme en <TextDecorator from="from-purple-300" to="to-pink-300">Instagram</TextDecorator> y <TextDecorator from="from-slate-100" to="to-slate-300">GitHub</TextDecorator>; consulta mi <TextDecorator from="from-amber-200" to="to-amber-300">biografía</TextDecorator> para obtener más información.
+          </p>
+          <p className="text-lg">
+            Soy responsable del desarrollo de una aplicación web a gran escala en <TextDecorator from="from-slate-300" to="to-amber-300">ElReferente</TextDecorator>. Trabajo en estrecha colaboración con un equipo de ingenieros para diseñar, implementar y probar la aplicación. También desempeño un papel clave en el despliegue y mantenimiento de la aplicación.
           </p>
         </section>
 
@@ -41,7 +41,7 @@ const Home: NextPage<IndexPage> = ({ posts }) => {
           <div className="mt-4 grid md:grid-cols-2 grid-cols-1 gap-10">
             {
               posts.map((post, index) => (
-                <Article key={index} title={post.title} languages={post.languages} extract={post.extract} image={ post.image } />
+                <Article key={index} title={post.title} languages={post.languages} extract={post.extract} image={post.image} />
               ))
             }
 

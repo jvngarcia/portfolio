@@ -1,7 +1,27 @@
 [
     {
+        "title": "Elreferente.es",
+        "extract": "El Referente es la revista líder de información sobre startups e innovación en España, creada y dirigida por un joven y dinámico equipo de periodistas residentes en Madrid capital. ",
+        "image": "/images/portfolio/elreferente.jpeg",
+        "languages": [
+            "PHP",
+            "Bootstrap",
+            "Javascript"
+        ]
+    },
+    {
+        "title": "Api's Privadas",
+        "extract": "Se desarrollaron distintas API's para distintos proyectos de procesos bancarios, aplicando estándares de seguridad y siguiendo las buenas prácticas para el mantenimiento correcto de las mismas.",
+        "image": "/images/portfolio/apis.jpeg",
+        "languages": [
+            "Python",
+            "FastAPI",
+            "Postman"
+        ]
+    },
+    {
         "title": "Portal de Pagos",
-        "extract": "Sistema de pagos en linea para la empresa Bancamiga Banco Universal C.A.",
+        "extract": "Sistema de pagos en linea en donde los clientes dueños de negocios puedan gestionar sus cobros mediante tarjetas de crédito y débito para la empresa Bancamiga Banco Universal C.A.",
         "image": "/images/portfolio/portal-pagos.jpeg",
         "languages": [
             "React",
@@ -10,9 +30,19 @@
         ]
     },
     {
+        "title": "Sistema de Registro de Candidatos",
+        "extract": "Sistema de registro de todos los candidatos postulados a la empresa Bancamiga Banco Universal C.A.",
+        "image": "/images/portfolio/registro-candidatos.jpeg",
+        "languages": [
+            "Laravel",
+            "PHP",
+            "Javascript"
+        ]
+    },
+    {
         "title": "Sistema de Registro de Formación",
         "extract": "Sistema de registro de toda formación recibida por los empleados de la empresa Bancamiga Banco Universal C.A.",
-        "image": "/images/portfolio/portal-pagos.jpeg",
+        "image": "/images/portfolio/registro-formacion.jpeg",
         "languages": [
             "Laravel",
             "PHP",
@@ -22,10 +52,11 @@
     {
         "title": "Verdad O Reto",
         "extract": "Juego de Verdad o Reto con más de 10k descargas en la playstore.",
-        "image": "/images/portfolio/trueordare.png",
+        "image": "/images/portfolio/verdad-o-reto.jpeg",
         "languages": [
             "Flutter",
-            "Dart"
+            "Dart",
+            "+10k Descargas"
         ]
     }
 ]
