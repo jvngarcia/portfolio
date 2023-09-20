@@ -7,6 +7,7 @@ import TextDecorator from "~/components/TextDecorator";
 import type { IndexPage } from "~/interfaces/Pages";
 import type { PostArticle } from "~/interfaces/Post";
 import data from "~/data/portfolio.json";
+import Script from "next/script";
 // import { api } from "~/utils/api";
 
 const Home: NextPage<IndexPage> = ({ posts }) => {
@@ -97,6 +98,19 @@ const Home: NextPage<IndexPage> = ({ posts }) => {
         <footer className="container my-8 py-6 text-center">
           <p>Desarrollado con <span className="text-red-500">❤️</span> por JVN García</p>
         </footer>
+
+        <div className="container">
+          <Script src="https://www.googletagmanager.com/gtag/js?id=G-ZZ4XWXNG9E" />
+          <Script id="google-analytics">
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+            
+              gtag('config', 'G-ZZ4XWXNG9E');
+            `}
+          </Script>
+        </div>
       </main>
     </>
   );
