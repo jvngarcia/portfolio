@@ -1,5 +1,15 @@
 [
     {
+        "title": "indiehackers.vercel.app",
+        "extract": "Side Project sobre un directorio de Indie Hackers, en donde se puede ver información sobre sus proyectos, redes sociales y contactarlos.",
+        "image": "/images/portfolio/indiehackers.jpeg",
+        "languages": [
+            "Nextjs",
+            "TailwindCSS",
+            "Javascript"
+        ]
+    },
+    {
         "title": "Elreferente.es",
         "extract": "El Referente es la revista líder de información sobre startups e innovación en España, creada y dirigida por un joven y dinámico equipo de periodistas residentes en Madrid capital. ",
         "image": "/images/portfolio/elreferente.jpeg",
