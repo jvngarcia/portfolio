@@ -59,7 +59,6 @@ model VerificationToken {
     @@unique([identifier, token])
 }
 
-
 model Post {
     id        String   @id @default(cuid())
     title     String
@@ -67,6 +66,7 @@ model Post {
     extract   String?
     slug      String   @unique
     image     String
+    keywords  String?
     published Boolean  @default(false)
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt

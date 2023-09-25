@@ -35,5 +35,8 @@ const config = {
     locales: ["es"],
     defaultLocale: "es",
   },
+  images: {
+    domains: ['placehold.co', 'fzdrqokgvonoazssrpnb.supabase.co'],
+  },
 };
 export default config;

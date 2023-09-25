@@ -5,12 +5,21 @@ import Article from "~/components/Article";
 import Header from "~/components/Header";
 import TextDecorator from "~/components/TextDecorator";
 import type { IndexPage } from "~/interfaces/Pages";
-import type { PostArticle } from "~/interfaces/Post";
+import type { Portafolio, PostArticle } from "~/interfaces/Post";
 import data from "~/data/portfolio.json";
 import Script from "next/script";
-// import { api } from "~/utils/api";
+import { useState } from "react";
+import { prisma } from "~/server/db";
 
-const Home: NextPage<IndexPage> = ({ posts }) => {
+
+const POST_TYPE = {
+  "POST": "post",
+  "PORTFOLIO": "portfolio"
+}
+
+const Home: NextPage<IndexPage> = ({ posts, portfolio }) => {
+
+  const [postType, setPostType] = useState(POST_TYPE.POST)
 
   return (
     <>
@@ -37,12 +46,37 @@ const Home: NextPage<IndexPage> = ({ posts }) => {
         </section>
 
         <section className="container mt-12">
-          <h2 className="text-2xl font-semibold mb-4">Portafolio</h2>
+          <div className="grid grid-cols-2">
+            <h2 className="text-2xl font-semibold mb-4 cursor-pointer" onClick={() => setPostType(POST_TYPE.POST)}>
+              {
+                postType == POST_TYPE.POST ?
+                  <TextDecorator from="from-purple-300" to="to-pink-300">Publicaciones</TextDecorator>
+                  :
+                  <>Publicaciones </>
+              }
+            </h2>
+            <h2 className="text-2xl font-semibold mb-4 cursor-pointer" onClick={() => setPostType(POST_TYPE.PORTFOLIO)}>
+              {
+                postType == POST_TYPE.PORTFOLIO ?
+                  <TextDecorator from="from-purple-300" to="to-pink-300">Portafolio</TextDecorator>
+                  :
+                  <>Portafolio</>
+              }
+            </h2>
+          </div>
           <hr />
           <div className="mt-4 grid md:grid-cols-2 grid-cols-1 gap-10">
-            {
-              posts.map((post, index) => (
+            {postType == POST_TYPE.PORTFOLIO &&
+              portfolio.map((post, index) => (
                 <Article key={index} title={post.title} languages={post.languages} extract={post.extract} image={post.image} />
+              ))
+            }
+
+            {postType == POST_TYPE.POST &&
+              posts.map((post) => (
+                <a href={`/blog/${post.slug}`} key={post.slug}>
+                  <Article title={post.title} languages={[]} extract={post.extract} image={post.image} />
+                </a>
               ))
             }
 
@@ -119,18 +153,34 @@ const Home: NextPage<IndexPage> = ({ posts }) => {
 export default Home;
 
 
-export const getServerSideProps = () => {
+export const getServerSideProps = async () => {
 
-  const allPosts: PostArticle[] = data.map((post) => ({
+  const data_post = await prisma.post.findMany({
+    where: {
+      published: true,
+    }
+  });
+
+  const allPosts: PostArticle[] = data_post.map((post) => ({
     title: post.title,
     extract: post.extract,
     image: post.image,
-    languages: post.languages,
+    content: post.content,
+    slug: post.slug
   }));
+
+  const allPortfolio: Portafolio[] = data.map((portfolio) => ({
+    title: portfolio.title,
+    extract: portfolio.extract,
+    image: portfolio.image,
+    languages: portfolio.languages
+  }));
+
 
   return {
     props: {
       posts: allPosts,
+      portfolio: allPortfolio
     },
   };
 }

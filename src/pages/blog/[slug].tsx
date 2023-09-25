@@ -7,6 +7,7 @@ import type { Post } from "~/interfaces/Post";
 import { prisma } from "~/server/db";
 import { serialize } from "next-mdx-remote/serialize"
 import { MDXRemote } from "next-mdx-remote"
+import Script from "next/script";
 
 
 const Blog = ({ post, content }: InferGetStaticPropsType<typeof getServerSideProps>) => {
@@ -14,8 +15,9 @@ const Blog = ({ post, content }: InferGetStaticPropsType<typeof getServerSidePro
     return (
         <>
             <Head>
-                <title>JVN García | Desarrollador de software</title>
-                <meta name="description" content="Desarrollador de software con Nextjs, Laravel y Python" />
+                <title>{post?.title} | JVN García</title>
+                <meta name="description" content={post?.extract ?? 'inteligencia artificial'} />
+                <meta name="keywords" content={post?.keywords ?? 'inteligencia artificial'} />
                 <link rel="icon" href="/images/logo.png" />
             </Head>
             <main className="container">
@@ -49,6 +51,18 @@ const Blog = ({ post, content }: InferGetStaticPropsType<typeof getServerSidePro
                 <footer className="container my-8 py-6 text-center">
                     <p>Desarrollado con <span className="text-red-500">❤️</span> por JVN García</p>
                 </footer>
+                <div className="container">
+                    <Script src="https://www.googletagmanager.com/gtag/js?id=G-ZZ4XWXNG9E" />
+                    <Script id="google-analytics">
+                        {`
+                            window.dataLayer = window.dataLayer || [];
+                            function gtag(){dataLayer.push(arguments);}
+                            gtag('js', new Date());
+                            
+                            gtag('config', 'G-ZZ4XWXNG9E');
+                        `}
+                    </Script>
+                </div>
             </main>
         </>
     );
@@ -72,6 +86,8 @@ export const getServerSideProps = async (context: GetStaticPropsContext<{ slug?:
             title: true,
             content: true,
             image: true,
+            extract: true,
+            keywords: true,
         }
     });
 

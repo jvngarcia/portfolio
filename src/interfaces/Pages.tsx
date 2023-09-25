@@ -1,9 +1,10 @@
-import type { Post, PostArticle } from "./Post";
+import type { Portafolio, Post, PostArticle } from "./Post";
 
 
 
 export type IndexPage = {
     posts: PostArticle[],
+    portfolio: Portafolio[],
 }
 
 
