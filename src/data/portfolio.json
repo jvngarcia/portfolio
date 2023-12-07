@@ -1,8 +1,8 @@
 [
     {
-        "title": "indiehackers.vercel.app",
-        "extract": "Side Project sobre un directorio de Indie Hackers, en donde se puede ver información sobre sus proyectos, redes sociales y contactarlos.",
-        "image": "/images/portfolio/indiehackers.jpeg",
+        "title": "indietool.tech",
+        "extract": "Un directorio de herramientas necesarias para un indie hacker o indie creator.",
+        "image": "/images/portfolio/indietool.jpeg",
         "languages": [
             "Nextjs",
             "TailwindCSS",
